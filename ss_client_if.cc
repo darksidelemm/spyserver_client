@@ -328,6 +328,7 @@ void ss_client_if::parse_message(char *buffer, uint32_t len) {
         //uint16_t server_build = (header.ProtocolID & 0xFFFF);
 
         if (client_major != server_major || client_minor != server_minor) {
+          std::cerr << "SS_client_if: Server version is " << server_major << "." << server_minor << "\n";
           throw std::runtime_error( std::string(__FUNCTION__) + " " + "Server is running an unsupported protocol version.");
         }
 
